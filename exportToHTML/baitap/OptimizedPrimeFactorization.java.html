@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>OptimizedPrimeFactorization.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #f97bb0; font-weight: bold;}
+.s1 { color: #dfdfe0;}
+.s2 { color: #d7c781;}
+.s3 { color: #ff806c;}
+</style>
+</head>
+<body bgcolor="#292a30">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+OptimizedPrimeFactorization.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">baitap;</span>
+
+<span class="s0">public class </span><span class="s1">OptimizedPrimeFactorization </span><span class="s0">implements </span><span class="s1">Runnable{</span>
+    <span class="s0">public boolean </span><span class="s1">isPrime(</span><span class="s0">int </span><span class="s1">n) {</span>
+        <span class="s0">if </span><span class="s1">(n &lt; </span><span class="s2">2</span><span class="s1">) {</span>
+            <span class="s0">return false</span><span class="s1">;</span>
+        <span class="s1">}</span>
+        <span class="s0">int </span><span class="s1">squareRoot = (</span><span class="s0">int</span><span class="s1">) Math.sqrt(n);</span>
+        <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">2</span><span class="s1">; i &lt;= squareRoot; i++) {</span>
+            <span class="s0">if </span><span class="s1">(n % i == </span><span class="s2">0</span><span class="s1">) {</span>
+                <span class="s0">return false</span><span class="s1">;</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+        <span class="s0">return true</span><span class="s1">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">run() {</span>
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Các số nguyên tố nhỏ hơn 100 là&quot;</span><span class="s1">);</span>
+        <span class="s1">Long startTime = System.currentTimeMillis();</span>
+        <span class="s0">try </span><span class="s1">{</span>
+
+            <span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s2">0</span><span class="s1">; i &lt; </span><span class="s2">100</span><span class="s1">; i++) {</span>
+                <span class="s0">if </span><span class="s1">(isPrime(i)) {</span>
+                    <span class="s1">System.out.println(i + </span><span class="s3">&quot; Tối ưu&quot;</span><span class="s1">);</span>
+                    <span class="s1">Thread.sleep(</span><span class="s2">1</span><span class="s1">);</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(InterruptedException e) {</span>
+            <span class="s1">e.printStackTrace();</span>
+        <span class="s1">}</span>
+        <span class="s1">Long endTime = System.currentTimeMillis();</span>
+
+        <span class="s1">System.out.println(endTime - startTime + </span><span class="s3">&quot;s&quot;</span><span class="s1">);</span>
+
+
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
